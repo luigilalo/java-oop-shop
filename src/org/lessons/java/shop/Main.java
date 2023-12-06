@@ -11,8 +11,7 @@ public class Main {
         String productDescription = scanner.next();
         System.out.println("Qual è il prezzo del prodotto?");
         double price = scanner.nextDouble();
-        System.out.println("Quant'è l'IVA del prodotto?");
-        double vat = scanner.nextDouble();
+        double vat = 0.40;
         Prodotto product = new Prodotto(productName, productDescription, price, vat);
         System.out.println(product.infoAndCode());
     }

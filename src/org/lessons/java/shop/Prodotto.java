@@ -23,7 +23,7 @@ public class Prodotto {
     // GETTERS & SETTERS
 
     public int getCode() {
-        return randomCode.nextInt(1000000,99999999);
+        return randomCode.nextInt(1000,999);
     }
 
     public String getProductName() {
@@ -45,6 +45,7 @@ public class Prodotto {
     // METODI
     Random randomCode = new Random();
     public int codeProduct = randomCode.nextInt(1000000,99999999);
+
 
     double priceWithVat() {
         return price + vat;
