@@ -57,7 +57,7 @@ public class Prodotto {
     }
 
 
-    double priceWithVat() {
+    public double priceWithVat() {
         return price + vat;
     }
 

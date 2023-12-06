@@ -13,6 +13,8 @@ public class Main {
         double price = scanner.nextDouble();
         double vat = 0.40;
         Prodotto product = new Prodotto(productName, productDescription, price, vat);
+        System.out.println("Il prezzo senza IVA sarà di " + product.getPrice());
+        System.out.println("Il prezzo con IVA sarà di" + " " + product.priceWithVat());
         System.out.println(product.infoAndCode());
     }
 }
