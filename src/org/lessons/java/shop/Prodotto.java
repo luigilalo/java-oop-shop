@@ -5,6 +5,7 @@ import java.util.Random;
 public class Prodotto {
 
     // ATTRIBUTI
+    private int code;
     private String productName;
     private String productDescription;
     private double price;
@@ -12,18 +13,21 @@ public class Prodotto {
 
     // COSTRUTTORI
     Prodotto(String productName, String productDescription, double price, double vat) {
+        codeProduct();
         this.productName = productName;
         this.productDescription = productDescription;
         this.price = price;
         this.vat = vat;
     }
 
-
-
     // GETTERS & SETTERS
 
     public int getCode() {
-        return randomCode.nextInt(1000,999);
+        return this.code;
+    }
+
+    private void setCode(int code) {
+        this.code = code;
     }
 
     public String getProductName() {
@@ -42,9 +46,15 @@ public class Prodotto {
         return vat;
     }
 
+
+
     // METODI
-    Random randomCode = new Random();
-    public int codeProduct = randomCode.nextInt(1000000,99999999);
+
+   private void codeProduct() {
+        Random randomCode = new Random();
+        int code = randomCode.nextInt(1000,9999);
+        setCode(code);
+    }
 
 
     double priceWithVat() {
@@ -52,7 +62,7 @@ public class Prodotto {
     }
 
     public String infoAndCode(){
-        return productName + " " + productDescription+"-"+codeProduct + " " + priceWithVat() + "euro";
+        return productName + " " + productDescription+"-"+ code + " " + priceWithVat() + "euro";
     }
 
 }
