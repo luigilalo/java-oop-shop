@@ -46,7 +46,9 @@ public class Prodotto {
         return vat;
     }
 
-
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     // METODI
 
