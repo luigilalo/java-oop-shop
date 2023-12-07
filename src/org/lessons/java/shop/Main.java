@@ -6,9 +6,23 @@ public class Main {
         double price = 0;
         double vat = 0;
         boolean correctInfo = false;
+        boolean validName = false;
+        String productName = null;
         Scanner scanner= new Scanner(System.in);
-        System.out.println("Qual è il nome del prodotto?");
-        String productName = scanner.next();
+       while (!validName) {
+           try {
+               System.out.println("Qual è il nome del prodotto?");
+               productName = scanner.nextLine();
+               if (productName.isEmpty()) {
+                   throw new IllegalArgumentException(Double.toString(price));
+               }
+           } catch (IllegalArgumentException e) {
+               System.out.println("Il nome non può essere vuoto!");
+           }
+           if (!productName.isEmpty()) {
+               validName = true;
+           }
+       }
         System.out.println("Qual è la descrizione del prodotto?");
         String productDescription = scanner.next();
       while (!correctInfo) {
@@ -30,7 +44,8 @@ public class Main {
             {correctInfo = true;
                                   }
       }
-        Prodotto product = new Prodotto(productName, productDescription, price, vat);
+        Prodotto product = new Prodotto(
+                productName, productDescription, price, vat);
         System.out.println("Il prezzo senza IVA sarà di " + product.getPrice());
         System.out.println("Il prezzo con IVA sarà di" + " " + product.priceWithVat());
         System.out.println(product.infoAndCode());
